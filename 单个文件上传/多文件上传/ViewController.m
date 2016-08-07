@@ -35,23 +35,29 @@ Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryPBu55l5NAr81Fh
  ------WebKitFormBoundaryPBu55l5NAr81Fhu8--
  */
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 }
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+- (void)touchesBegan:(NSSet<UITouch*>*)touches withEvent:(UIEvent*)event
+{
+    NSString *filePath1=[[NSBundle mainBundle]pathForResource:@"20160202213200_tXS4W.jpg" ofType:nil];
+    NSString *filePath2=[[NSBundle mainBundle]pathForResource:@"B5DDA6EEB1F9C7873E872F7E8E00D3E2.jpg" ofType:nil];
+    NSDictionary *dict=@{@"status":@"皮条钦"};
     
+    [self uploadWithServerName:@"userfile[]" filePaths:@[filePath1,filePath2] parameters:dict];
 }
-- (void)uploadWithServerName:(NSString *)serverName filePaths:(NSArray *)filePaths
+- (void)uploadWithServerName:(NSString*)serverName filePaths:(NSArray*)filePaths parameters:(NSDictionary *)parameters
 {
     //URL
-    NSURL *url=[NSURL URLWithString:@""];
+    NSURL* url = [NSURL URLWithString:@"http://127.0.0.1/myWeb/php/upload/upload-m.php"];
     //可变的请求
-    NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:url];
+    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:url];
     //请求的方式
-    request.HTTPMethod=@"POST";
+    request.HTTPMethod = @"POST";
     [request setValue:@"multipart/form-data; boundary=----WebKitFormBoundaryPBu55l5NAr81Fhu8" forHTTPHeaderField:@"Content-Type"];
-    request.HTTPBody=[self httpBodyWithServerName:serverName filePaths:filePaths parameters: ];
+    request.HTTPBody = [self httpBodyWithServerName:serverName filePaths:filePaths parameters:parameters];
     //发送请求
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse* _Nullable response, NSData* _Nullable data, NSError* _Nullable connectionError) {
         if (connectionError != nil || data.length == 0) {
@@ -62,34 +68,38 @@ Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryPBu55l5NAr81Fh
         NSLog(@"%@", result);
     }];
 }
-- (void)httpBodyWithServerName:(NSString *)serverName filePaths:(NSArray *)filePaths parameters:(NSDictionary *)parameters
+- (NSData *)httpBodyWithServerName:(NSString*)serverName filePaths:(NSArray*)filePaths parameters:(NSDictionary*)parameters
 {
-    NSMutableData *dataM=[NSMutableData data];
-    
-    [filePaths enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    NSMutableData* dataM = [NSMutableData data];
+
+    [filePaths enumerateObjectsUsingBlock:^(id _Nonnull obj, NSUInteger idx, BOOL* _Nonnull stop) {
         //初始化一个可变的字符串
-        NSMutableString *stringM=[NSMutableString string];
-        
-        [stringM appendString: @"\r\n------WebKitFormBoundaryPBu55l5NAr81Fhu8\r\n"];
-        [stringM appendFormat:@"Content-Disposition: form-data; name=\"%@\"; filename=\"%@\"\r\n",serverName,[obj lastPathComponent] ];
+        NSMutableString* stringM = [NSMutableString string];
+
+        [stringM appendString:@"\r\n------WebKitFormBoundaryPBu55l5NAr81Fhu8\r\n"];
+        [stringM appendFormat:@"Content-Disposition: form-data; name=\"%@\"; filename=\"%@\"\r\n", serverName, [obj lastPathComponent]];
         [stringM appendString:@"Content-Type: image/jpeg\r\n"];
         [stringM appendString:@"\r\n"];
-        
+
         [dataM appendData:[stringM dataUsingEncoding:NSUTF8StringEncoding]];
         [dataM appendData:[NSData dataWithContentsOfFile:obj]];
-        
-        
+
     }];
-    parameters enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
-        NSMutableString *stringM=[NSMutableString string];
+    //拼接文字信息
+    [parameters enumerateKeysAndObjectsUsingBlock:^(id _Nonnull key, id _Nonnull obj, BOOL* _Nonnull stop) {
+        NSMutableString* stringM = [NSMutableString string];
         [stringM appendString:@"\r\n------WebKitFormBoundaryPBu55l5NAr81Fhu8"];
-        [stringM appendString:@"Content-Disposition: form-data; name=\"status\"\r\n"];
-        stringM appendString:<#(nonnull NSString *)#>
-    }
+        [stringM appendFormat:@"Content-Disposition: form-data; name=\"%@\"\r\n", key];
+        [stringM appendString:@"\r\n"];
+        [stringM appendFormat:@"%@\r\n", obj];
+        [dataM appendData:[stringM dataUsingEncoding:NSUTF8StringEncoding]];
+    }];
+    [dataM appendData:[@"--itcast--" dataUsingEncoding:NSUTF8StringEncoding]];
     return [dataM copy];
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }

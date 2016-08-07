@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F30855121D57322A0074A3AA /* FileDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = F30855111D57322A0074A3AA /* FileDownloader.m */; };
 		F3E1ACB61D572EEF00A3C995 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F3E1ACB51D572EEF00A3C995 /* main.m */; };
 		F3E1ACB91D572EEF00A3C995 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F3E1ACB81D572EEF00A3C995 /* AppDelegate.m */; };
 		F3E1ACBC1D572EEF00A3C995 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3E1ACBB1D572EEF00A3C995 /* ViewController.m */; };
@@ -16,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F30855101D57322A0074A3AA /* FileDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileDownloader.h; sourceTree = "<group>"; };
+		F30855111D57322A0074A3AA /* FileDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileDownloader.m; sourceTree = "<group>"; };
 		F3E1ACB11D572EEF00A3C995 /* 使用GET方法直接下载文件.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "使用GET方法直接下载文件.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3E1ACB51D572EEF00A3C995 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F3E1ACB71D572EEF00A3C995 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -62,6 +65,8 @@
 				F3E1ACB81D572EEF00A3C995 /* AppDelegate.m */,
 				F3E1ACBA1D572EEF00A3C995 /* ViewController.h */,
 				F3E1ACBB1D572EEF00A3C995 /* ViewController.m */,
+				F30855101D57322A0074A3AA /* FileDownloader.h */,
+				F30855111D57322A0074A3AA /* FileDownloader.m */,
 				F3E1ACBD1D572EEF00A3C995 /* Main.storyboard */,
 				F3E1ACC01D572EEF00A3C995 /* Assets.xcassets */,
 				F3E1ACC21D572EEF00A3C995 /* LaunchScreen.storyboard */,
@@ -152,6 +157,7 @@
 			files = (
 				F3E1ACBC1D572EEF00A3C995 /* ViewController.m in Sources */,
 				F3E1ACB91D572EEF00A3C995 /* AppDelegate.m in Sources */,
+				F30855121D57322A0074A3AA /* FileDownloader.m in Sources */,
 				F3E1ACB61D572EEF00A3C995 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -303,6 +309,7 @@
 				F3E1ACCA1D572EEF00A3C995 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

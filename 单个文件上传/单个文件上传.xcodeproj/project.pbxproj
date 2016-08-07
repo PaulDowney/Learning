@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F30855151D5788DC0074A3AA /* 20160202213200_tXS4W.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F30855131D5788DC0074A3AA /* 20160202213200_tXS4W.jpg */; };
+		F30855161D5788DC0074A3AA /* B5DDA6EEB1F9C7873E872F7E8E00D3E2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F30855141D5788DC0074A3AA /* B5DDA6EEB1F9C7873E872F7E8E00D3E2.jpg */; };
 		F3E1AC741D56CC2800A3C995 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F3E1AC731D56CC2800A3C995 /* main.m */; };
 		F3E1AC771D56CC2800A3C995 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F3E1AC761D56CC2800A3C995 /* AppDelegate.m */; };
 		F3E1AC7A1D56CC2800A3C995 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3E1AC791D56CC2800A3C995 /* ViewController.m */; };
@@ -23,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F30855131D5788DC0074A3AA /* 20160202213200_tXS4W.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 20160202213200_tXS4W.jpg; sourceTree = "<group>"; };
+		F30855141D5788DC0074A3AA /* B5DDA6EEB1F9C7873E872F7E8E00D3E2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = B5DDA6EEB1F9C7873E872F7E8E00D3E2.jpg; sourceTree = "<group>"; };
 		F3E1AC6F1D56CC2700A3C995 /* 单个文件上传.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "单个文件上传.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3E1AC731D56CC2800A3C995 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F3E1AC751D56CC2800A3C995 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -116,6 +120,8 @@
 				F3E1AC981D56DF9700A3C995 /* ViewController.m */,
 				F3E1AC9A1D56DF9700A3C995 /* Main.storyboard */,
 				F3E1AC9D1D56DF9700A3C995 /* Assets.xcassets */,
+				F30855131D5788DC0074A3AA /* 20160202213200_tXS4W.jpg */,
+				F30855141D5788DC0074A3AA /* B5DDA6EEB1F9C7873E872F7E8E00D3E2.jpg */,
 				F3E1AC9F1D56DF9700A3C995 /* LaunchScreen.storyboard */,
 				F3E1ACA21D56DF9700A3C995 /* Info.plist */,
 				F3E1AC911D56DF9700A3C995 /* Supporting Files */,
@@ -221,6 +227,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3E1ACA11D56DF9700A3C995 /* LaunchScreen.storyboard in Resources */,
+				F30855151D5788DC0074A3AA /* 20160202213200_tXS4W.jpg in Resources */,
+				F30855161D5788DC0074A3AA /* B5DDA6EEB1F9C7873E872F7E8E00D3E2.jpg in Resources */,
 				F3E1AC9E1D56DF9700A3C995 /* Assets.xcassets in Resources */,
 				F3E1AC9C1D56DF9700A3C995 /* Main.storyboard in Resources */,
 			);
@@ -432,6 +440,7 @@
 				F3E1AC881D56CC2800A3C995 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F3E1ACA31D56DF9700A3C995 /* Build configuration list for PBXNativeTarget "多文件上传" */ = {
 			isa = XCConfigurationList;
@@ -440,6 +449,7 @@
 				F3E1ACA51D56DF9700A3C995 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
