@@ -21,12 +21,12 @@
 }
 - (void)touchesBegan:(NSSet<UITouch*>*)touches withEvent:(UIEvent*)event
 {
-    NSString* path = [[NSBundle mainBundle] pathForResource:@"IMG_0047.JPG" ofType:nil];
+    NSString* path = [[NSBundle mainBundle] pathForResource:@"B5DDA6EEB1F9C7873E872F7E8E00D3E2.jpg" ofType:nil];
     [self uploadWithServerName:@"userfile" andFilePath:path];
 }
 - (void)uploadWithServerName:(NSString*)serverName andFilePath:(NSString*)filePath
 {
-    NSURL* url = [NSURL URLWithString:@"http://127.0.0.1/myWeb/php/upload/upload.php"];
+    NSURL* url = [NSURL URLWithString:@"http://192.168.43.27/myWeb/php/upload/upload.php"];
     NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = @"POST";
     [request setValue:@"multipart/form-data; boundary=itcast" forHTTPHeaderField:@"Content-Type"];
@@ -47,7 +47,7 @@
     NSMutableData* dataM = [NSMutableData data];
 
     NSMutableString* stringM = [NSMutableString string];
-    [stringM appendString:@"--itcast"];
+    [stringM appendString:@"--itcast\r\n"];
     [stringM appendFormat:@"Content-Disposition: form-data; name=\"%@\"; filename=\"%@\"\r\n", serverName, [filePath lastPathComponent]];
     [stringM appendString:@"Content=Type: image/jpeg\r\n"];
     [stringM appendString:@"\r\n"];
