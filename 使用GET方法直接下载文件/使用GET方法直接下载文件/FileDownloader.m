@@ -11,7 +11,8 @@
 @interface FileDownloader () <NSURLConnectionDataDelegate>
 @property (nonatomic, assign) long long expectedLength;
 @property (nonatomic, assign) long long currentLength;
-@property (nonatomic, strong) NSMutableData* dataM;
+//@property (nonatomic, strong) NSMutableData* dataM;
+@property (nonatomic, strong) NSOutputStream* outputStream;
 @end
 @implementation FileDownloader
 - (void)downloadFileWithUrlString:(NSString*)urlString
@@ -35,6 +36,31 @@
     //        [data writeToFile:@"/Users/heima/Desktop/sougou.zip"  atomically:true];
     //    }];
 }
+/**
+ *  保存每一次下载的数据
+ *  要解决内存峰值过高:每下载一点就保存一点
+ *  @param data
+ */
+- (void)saveData:(NSData*)data
+{
+    NSString* filePath = @"/Users/lilinzhu/Desktop/sougou.zip";
+    //如果该文件不存在,那么这方法初始化出来的对象是nil
+    NSFileHandle* handle = [NSFileHandle fileHandleForWritingAtPath:filePath];
+    if (handle == nil) {
+        //如果handle为nil,则创建文件,并传入data写入到该文件
+        [data writeToFile:filePath atomically:true];
+    }
+    else {
+        //将文件句柄移动到文件的最后 以保证数据是从最后面开始写入的
+        [handle seekToEndOfFile]; //如果没有这句,就代表每次写入从第0个位置开始
+        //如果文件存在,将传入的data写入到文件
+        [handle writeData:data];
+        //写入完成 要关闭 文件句柄
+        [handle closeFile];
+    }
+}
+
+#pragma mark---NSURLConnectionDataDelegate
 - (void)connection:(NSURLConnection*)connection didReceiveResponse:(NSURLResponse*)response
 {
     NSLog(@"收到响应%@ %lld", response, response.expectedContentLength);
@@ -53,21 +79,8 @@
     NSLog(@"下载完成");
     //    [self.dataM writeToFile:@"/Users/lilinzhu/Desktop/sougou.zip" atomically:true];
 }
-- (void)saveData:(NSData*)data
+- (void)connection:(NSURLConnection*)connection didFailWithError:(NSError*)error
 {
-    NSString* filePath = @"/Users/lilinzhu/Desktop/sougou.zip";
-    //如果该文件不存在,那么这方法初始化出来的对象是nil
-    NSFileHandle* handle = [NSFileHandle fileHandleForWritingAtPath:filePath];
-    if (handle == nil) {
-        //如果handle为nil,则创建文件,并传入data写入到该文件
-    }
-    else {
-        //将文件句柄移动到文件的最后 以保证数据是从最后面开始写入的
-        [handle seekToEndOfFile]; //如果没有这句,就代表每次写入从第0个位置开始
-        //如果文件存在,将传入的data写入到文件
-        [handle writeData:data];
-        //写入完成 要关闭 文件句柄
-        [handle closeFile];
-    }
+    NSLog(@"下载出错%@", error);
 }
 @end
