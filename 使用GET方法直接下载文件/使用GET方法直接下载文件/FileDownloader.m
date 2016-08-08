@@ -11,6 +11,7 @@
 @interface FileDownloader ()<NSURLConnectionDataDelegate>
 @property(nonatomic,assign)long long expectedLength;
 @property(nonatomic,assign)long long currentLength;
+@property(nonatomic,strong)NSMutableData *dataM;
 @end
 @implementation FileDownloader
 -(void)downloadFileWithUrlString:(NSString *)urlString{
@@ -33,8 +34,11 @@
     self.currentLength += data.length;
     float  progress=(float )_currentLength/_expectedLength;
     NSLog(@"收到数据%f %lu",progress,data.length);
+    [self.dataM appendData:data];
+    
 }
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection{
     NSLog(@"下载完成");
+    [self.dataM writeToFile:@"/Users/lilinzhu/Desktop/sougou.zip" atomically:true];
 }
 @end
