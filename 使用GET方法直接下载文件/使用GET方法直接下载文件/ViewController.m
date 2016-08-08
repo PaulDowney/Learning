@@ -6,8 +6,8 @@
 //  Copyright © 2016年 LpL. All rights reserved.
 //
 
-#import "ViewController.h"
 #import "FileDownloader.h"
+#import "ViewController.h"
 
 @interface ViewController ()
 
@@ -15,12 +15,14 @@
 
 @implementation ViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 }
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    FileDownloader *downloader=[[FileDownloader alloc    ]init];
+- (void)touchesBegan:(NSSet<UITouch*>*)touches withEvent:(UIEvent*)event
+{
+    FileDownloader* downloader = [[FileDownloader alloc] init];
     [downloader downloadFileWithUrlString:@"http://127.0.0.1/myweb/sougou.zip"];
 }
 //- (void)demo
@@ -36,7 +38,8 @@
 //    }];
 //}
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
