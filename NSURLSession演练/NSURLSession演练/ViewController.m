@@ -21,21 +21,37 @@
 }
 - (void)touchesBegan:(NSSet<UITouch*>*)touches withEvent:(UIEvent*)event
 {
-    [self demo1];
+    [self demo3];
+}
+- (void)demo3
+{
+    NSURL* url = [NSURL URLWithString:@"http://127.0.0.1/myWeb/php/login/login.php"];
+    NSMutableURLRequest* requestM = [NSMutableURLRequest requestWithURL:url];
+    requestM.HTTPMethod = @"POST";
+    requestM.HTTPBody = [@"username=zhangsan&password=zhang" dataUsingEncoding:NSUTF8StringEncoding];
+
+    [[[NSURLSession sharedSession] dataTaskWithRequest:requestM completionHandler:^(NSData* _Nullable data, NSURLResponse* _Nullable response, NSError* _Nullable error) {
+        NSLog(@"%@", [NSThread currentThread]);
+
+        if (error != nil || data.length == 0) {
+            NSLog(@"%@", error);
+            return;
+        }
+        id result = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
+        NSLog(@"%@", result);
+    }] resume];
 }
 - (void)demo2
 {
-    NSURL* url = [NSURL URLWithString:@"http://127.0.0.1/myweb/php/login/"];
-    [[[NSURLSession sharedSession]
-          dataTaskWithURL:url
-        completionHandler:^(NSData* _Nullable data, NSURLResponse* _Nullable response, NSError* _Nullable error) {
-            if (error != nil || data.length == 0) {
-                NSLog(@"%@", error);
-                return;
-            }
-            id result = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
-            NSLog(@"%@", result);
-        }]resume];
+    NSURL* url = [NSURL URLWithString:@"http://127.0.0.1/myWeb/php/login/login.php?username=zhangsan&password=zhang"];
+    [[[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData* _Nullable data, NSURLResponse* _Nullable response, NSError* _Nullable error) {
+        if (error != nil || data.length == 0) {
+            NSLog(@"%@", error);
+            return;
+        }
+        id result = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
+        NSLog(@"%@", result);
+    }] resume];
 }
 - (void)demo1
 {
