@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>outputStream解决内存暴涨问题.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>使用GET方法直接下载文件.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -12,6 +17,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>F38A3E761D58A3A7003E2835</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>F3E1ACB01D572EEF00A3C995</key>
 		<dict>
 			<key>primary</key>

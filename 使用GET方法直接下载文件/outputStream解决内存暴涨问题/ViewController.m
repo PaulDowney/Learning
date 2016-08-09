@@ -10,7 +10,7 @@
 #import "ViewController.h"
 
 @interface ViewController ()
-
+@property(nonatomic,strong)FileDownloader *downloader;
 @end
 
 @implementation ViewController
@@ -20,10 +20,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 }
-
-- (void)touchesBegan:(NSSet<UITouch*>*)touches withEvent:(UIEvent*)event
-{
+- (IBAction)pauseBtnClick:(id)sender {
+    [self.downloader pauseDownload];
+}
+- (IBAction)downloadBtnClick:(id)sender {
     FileDownloader* downloader = [[FileDownloader alloc] init];
+    self.downloader=downloader;
     [downloader downloadFileWithUrlString:@"http://127.0.0.1/myweb/sougou.zip"];
 }
 

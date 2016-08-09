@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		F30855121D57322A0074A3AA /* FileDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = F30855111D57322A0074A3AA /* FileDownloader.m */; };
+		F38A3E7B1D58A3A7003E2835 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F38A3E7A1D58A3A7003E2835 /* main.m */; };
+		F38A3E7E1D58A3A7003E2835 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F38A3E7D1D58A3A7003E2835 /* AppDelegate.m */; };
+		F38A3E841D58A3A7003E2835 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F38A3E821D58A3A7003E2835 /* Main.storyboard */; };
+		F38A3E861D58A3A7003E2835 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F38A3E851D58A3A7003E2835 /* Assets.xcassets */; };
+		F38A3E891D58A3A7003E2835 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F38A3E871D58A3A7003E2835 /* LaunchScreen.storyboard */; };
+		F38A3E921D58A3CE003E2835 /* FileDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = F38A3E8F1D58A3CE003E2835 /* FileDownloader.m */; };
+		F38A3E931D58A3CE003E2835 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F38A3E911D58A3CE003E2835 /* ViewController.m */; };
 		F3E1ACB61D572EEF00A3C995 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F3E1ACB51D572EEF00A3C995 /* main.m */; };
 		F3E1ACB91D572EEF00A3C995 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F3E1ACB81D572EEF00A3C995 /* AppDelegate.m */; };
 		F3E1ACBC1D572EEF00A3C995 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3E1ACBB1D572EEF00A3C995 /* ViewController.m */; };
@@ -19,6 +26,18 @@
 /* Begin PBXFileReference section */
 		F30855101D57322A0074A3AA /* FileDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileDownloader.h; sourceTree = "<group>"; };
 		F30855111D57322A0074A3AA /* FileDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileDownloader.m; sourceTree = "<group>"; };
+		F38A3E771D58A3A7003E2835 /* outputStream解决内存暴涨问题.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "outputStream解决内存暴涨问题.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F38A3E7A1D58A3A7003E2835 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F38A3E7C1D58A3A7003E2835 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F38A3E7D1D58A3A7003E2835 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F38A3E831D58A3A7003E2835 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F38A3E851D58A3A7003E2835 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F38A3E881D58A3A7003E2835 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F38A3E8A1D58A3A7003E2835 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F38A3E8E1D58A3CE003E2835 /* FileDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileDownloader.h; sourceTree = "<group>"; };
+		F38A3E8F1D58A3CE003E2835 /* FileDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileDownloader.m; sourceTree = "<group>"; };
+		F38A3E901D58A3CE003E2835 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		F38A3E911D58A3CE003E2835 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		F3E1ACB11D572EEF00A3C995 /* 使用GET方法直接下载文件.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "使用GET方法直接下载文件.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3E1ACB51D572EEF00A3C995 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F3E1ACB71D572EEF00A3C995 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -32,6 +51,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		F38A3E741D58A3A7003E2835 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F3E1ACAE1D572EEF00A3C995 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -42,10 +68,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F38A3E781D58A3A7003E2835 /* outputStream解决内存暴涨问题 */ = {
+			isa = PBXGroup;
+			children = (
+				F38A3E7C1D58A3A7003E2835 /* AppDelegate.h */,
+				F38A3E7D1D58A3A7003E2835 /* AppDelegate.m */,
+				F38A3E821D58A3A7003E2835 /* Main.storyboard */,
+				F38A3E8E1D58A3CE003E2835 /* FileDownloader.h */,
+				F38A3E8F1D58A3CE003E2835 /* FileDownloader.m */,
+				F38A3E901D58A3CE003E2835 /* ViewController.h */,
+				F38A3E911D58A3CE003E2835 /* ViewController.m */,
+				F38A3E851D58A3A7003E2835 /* Assets.xcassets */,
+				F38A3E871D58A3A7003E2835 /* LaunchScreen.storyboard */,
+				F38A3E8A1D58A3A7003E2835 /* Info.plist */,
+				F38A3E791D58A3A7003E2835 /* Supporting Files */,
+			);
+			path = "outputStream解决内存暴涨问题";
+			sourceTree = "<group>";
+		};
+		F38A3E791D58A3A7003E2835 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F38A3E7A1D58A3A7003E2835 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		F3E1ACA81D572EEF00A3C995 = {
 			isa = PBXGroup;
 			children = (
 				F3E1ACB31D572EEF00A3C995 /* 使用GET方法直接下载文件 */,
+				F38A3E781D58A3A7003E2835 /* outputStream解决内存暴涨问题 */,
 				F3E1ACB21D572EEF00A3C995 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				F3E1ACB11D572EEF00A3C995 /* 使用GET方法直接下载文件.app */,
+				F38A3E771D58A3A7003E2835 /* outputStream解决内存暴涨问题.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -87,6 +141,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		F38A3E761D58A3A7003E2835 /* outputStream解决内存暴涨问题 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F38A3E8D1D58A3A7003E2835 /* Build configuration list for PBXNativeTarget "outputStream解决内存暴涨问题" */;
+			buildPhases = (
+				F38A3E731D58A3A7003E2835 /* Sources */,
+				F38A3E741D58A3A7003E2835 /* Frameworks */,
+				F38A3E751D58A3A7003E2835 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "outputStream解决内存暴涨问题";
+			productName = "outputStream解决内存暴涨问题";
+			productReference = F38A3E771D58A3A7003E2835 /* outputStream解决内存暴涨问题.app */;
+			productType = "com.apple.product-type.application";
+		};
 		F3E1ACB01D572EEF00A3C995 /* 使用GET方法直接下载文件 */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F3E1ACC81D572EEF00A3C995 /* Build configuration list for PBXNativeTarget "使用GET方法直接下载文件" */;
@@ -113,6 +184,9 @@
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = LpL;
 				TargetAttributes = {
+					F38A3E761D58A3A7003E2835 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
 					F3E1ACB01D572EEF00A3C995 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 7686R2N845;
@@ -133,11 +207,22 @@
 			projectRoot = "";
 			targets = (
 				F3E1ACB01D572EEF00A3C995 /* 使用GET方法直接下载文件 */,
+				F38A3E761D58A3A7003E2835 /* outputStream解决内存暴涨问题 */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		F38A3E751D58A3A7003E2835 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F38A3E891D58A3A7003E2835 /* LaunchScreen.storyboard in Resources */,
+				F38A3E861D58A3A7003E2835 /* Assets.xcassets in Resources */,
+				F38A3E841D58A3A7003E2835 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F3E1ACAF1D572EEF00A3C995 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -151,6 +236,17 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		F38A3E731D58A3A7003E2835 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F38A3E921D58A3CE003E2835 /* FileDownloader.m in Sources */,
+				F38A3E7E1D58A3A7003E2835 /* AppDelegate.m in Sources */,
+				F38A3E931D58A3CE003E2835 /* ViewController.m in Sources */,
+				F38A3E7B1D58A3A7003E2835 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F3E1ACAD1D572EEF00A3C995 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -165,6 +261,22 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		F38A3E821D58A3A7003E2835 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F38A3E831D58A3A7003E2835 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F38A3E871D58A3A7003E2835 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F38A3E881D58A3A7003E2835 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
 		F3E1ACBD1D572EEF00A3C995 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -184,6 +296,28 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		F38A3E8B1D58A3A7003E2835 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "outputStream解决内存暴涨问题/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.QQ522031413.outputStream--------";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F38A3E8C1D58A3A7003E2835 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "outputStream解决内存暴涨问题/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.QQ522031413.outputStream--------";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		F3E1ACC61D572EEF00A3C995 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -293,6 +427,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		F38A3E8D1D58A3A7003E2835 /* Build configuration list for PBXNativeTarget "outputStream解决内存暴涨问题" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F38A3E8B1D58A3A7003E2835 /* Debug */,
+				F38A3E8C1D58A3A7003E2835 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		F3E1ACAC1D572EEF00A3C995 /* Build configuration list for PBXProject "使用GET方法直接下载文件" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
