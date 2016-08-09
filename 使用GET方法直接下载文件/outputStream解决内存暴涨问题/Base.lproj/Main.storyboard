@@ -48,15 +48,30 @@
                                     <action selector="pauseBtnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lqX-hu-AcU"/>
                                 </connections>
                             </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" misplaced="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="1YC-LV-y9d">
+                                <rect key="frame" x="20" y="128" width="555" height="10"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="10" id="Njg-eh-dVR"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="10" id="iEY-HF-Q3U"/>
+                                </constraints>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="1YC-LV-y9d" firstAttribute="top" secondItem="VaR-I7-Rfj" secondAttribute="bottom" constant="8" id="68z-a6-bSL"/>
+                            <constraint firstItem="1YC-LV-y9d" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="JKb-2p-aq1"/>
+                            <constraint firstAttribute="trailing" secondItem="1YC-LV-y9d" secondAttribute="trailing" constant="25" id="XEy-um-xW8"/>
                             <constraint firstItem="Bhp-98-2SV" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="Yjs-8Z-gO8"/>
                             <constraint firstItem="VaR-I7-Rfj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="ZWJ-dy-cI1"/>
+                            <constraint firstItem="1YC-LV-y9d" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="cKW-7M-hlk"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1YC-LV-y9d" secondAttribute="trailing" constant="5" id="fUZ-Dh-Hp1"/>
                             <constraint firstItem="VaR-I7-Rfj" firstAttribute="top" secondItem="Bhp-98-2SV" secondAttribute="bottom" constant="32" id="gup-2w-WUr"/>
                             <constraint firstItem="Bhp-98-2SV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="oNN-cj-Jt4"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="progressView" destination="1YC-LV-y9d" id="QIS-zF-gkt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

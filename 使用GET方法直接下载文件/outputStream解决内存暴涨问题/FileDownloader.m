@@ -14,32 +14,37 @@
 //@property (nonatomic, strong) NSMutableData* dataM;
 @property (nonatomic, strong) NSOutputStream* outputStream;
 @property (nonatomic, strong) NSURLConnection* connection;
+@property (nonatomic, copy) void (^progressBlock)(float progress);
+@property (nonatomic, copy) void (^finishedBlock)(BOOL isSuccess, NSError* error);
 @end
 @implementation FileDownloader
-- (void)downloadFileWithUrlString:(NSString*)urlString
+- (void)downloadFileWithUrlString:(NSString*)urlString progress:(void (^)(float))progress finished:(void (^)(BOOL, NSError*))finished
 {
-    //获取服务器文件大小
-    self.expectedLength = [self getServerFileSize:urlString];
-    //定义一个文件保存的路径
-    NSString* filePath = @"/Users/lilinzhu/Desktop/sougou.zip";
-    //获取本地文件大小
-    self.currentLength = [self getLocalFileSize:filePath];
-    NSLog(@"%lld", self.currentLength);
-
-    if (self.currentLength == -1) {
-        NSLog(@"已经完成下载,不用下载");
-        return;
-    }
-
-    NSURL* url = [NSURL URLWithString:urlString];
-    NSMutableURLRequest* requestM = [NSMutableURLRequest requestWithURL:url];
-    //    [[[NSOperationQueue alloc]init] addOperationWithBlock:^{
-    //
-    //    }];
-    //告诉服务器从哪个位置开始下载
-    [requestM setValue:[NSString stringWithFormat:@"bytes=%lld-", self.currentLength] forHTTPHeaderField:@"Range"];
+    //第二步 使用一个属性记录这个block
+    self.progressBlock = progress;
+    self.finishedBlock = finished;
 
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        //获取服务器文件大小
+        self.expectedLength = [self getServerFileSize:urlString];
+        //定义一个文件保存的路径
+        NSString* filePath = @"/Users/lilinzhu/Desktop/sougou.zip";
+        //获取本地文件大小
+        self.currentLength = [self getLocalFileSize:filePath];
+        NSLog(@"%lld", self.currentLength);
+
+        if (self.currentLength == -1) {
+            NSLog(@"已经完成下载,不用下载");
+            return;
+        }
+
+        NSURL* url = [NSURL URLWithString:urlString];
+        NSMutableURLRequest* requestM = [NSMutableURLRequest requestWithURL:url];
+        //    [[[NSOperationQueue alloc]init] addOperationWithBlock:^{
+        //
+        //    }];
+        //告诉服务器从哪个位置开始下载
+        [requestM setValue:[NSString stringWithFormat:@"bytes=%lld-", self.currentLength] forHTTPHeaderField:@"Range"];
 
         self.connection = [NSURLConnection connectionWithRequest:requestM delegate:self];
         [[NSRunLoop currentRunLoop] run];
@@ -152,12 +157,22 @@
     //    [self saveData:data];
     //往可变的二进制数据里面去拼接二进制数据
     [self.outputStream write:data.bytes maxLength:data.length];
+
+    //第三步 当我们需要的时候 再调用这个block
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.progressBlock(progress);
+    });
 }
 - (void)connectionDidFinishLoading:(NSURLConnection*)connection
 {
     NSLog(@"下载完成");
     //    [self.dataM writeToFile:@"/Users/lilinzhu/Desktop/sougou.zip" atomically:true];
     [self.outputStream close];
+
+    dispatch_async(dispatch_get_main_queue(), ^{
+        //调用block
+        self.finishedBlock(true, nil);
+    });
 }
 - (void)connection:(NSURLConnection*)connection didFailWithError:(NSError*)error
 {

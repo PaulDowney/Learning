@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface FileDownloader : NSObject
--(void)downloadFileWithUrlString:(NSString *)urlString;
+- (void)downloadFileWithUrlString:(NSString *)urlString progress:(void(^)(float progress))progress finished:(void(^)(BOOL isSuccess,NSError *error))finished;;
 -(void)pauseDownload;
 @end

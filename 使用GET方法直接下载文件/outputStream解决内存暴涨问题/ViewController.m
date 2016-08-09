@@ -10,6 +10,7 @@
 #import "ViewController.h"
 
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet UIProgressView* progressView;
 @property (nonatomic, strong) FileDownloader* downloader;
 @end
 
@@ -27,9 +28,17 @@
 - (IBAction)downloadBtnClick:(id)sender
 {
     NSLog(@"开始下载---------------");
-    FileDownloader* downloader = [[FileDownloader alloc] init];
-    self.downloader = downloader;
-    [downloader downloadFileWithUrlString:@"http://127.0.0.1/myweb/sougou.zip"];
+    self.downloader = [[FileDownloader alloc] init];
+    //第一步 通过这个方法传一个block的参数进去
+    [self.downloader downloadFileWithUrlString:@"http://127.0.0.1/myweb/sougou.zip" progress:^(float progress) {
+        self.progressView.progress = progress;
+    }finished:^(BOOL isSuccess, NSError *error) {
+        if (isSuccess) {
+            NSLog(@"提示用户下载完成");
+        } else {
+            NSLog(@"%@",error);
+        }
+    }];
 }
 
 //- (void)demo
