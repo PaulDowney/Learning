@@ -18,6 +18,11 @@
 @property (nonatomic, copy) void (^finishedBlock)(BOOL isSuccess, NSError* error);
 @end
 @implementation FileDownloader
+- (void)resetBlock
+{
+    self.progressBlock = nil;
+    self.finishedBlock = nil;
+}
 - (void)downloadFileWithUrlString:(NSString*)urlString progress:(void (^)(float))progress finished:(void (^)(BOOL, NSError*))finished
 {
     //第二步 使用一个属性记录这个block
@@ -161,6 +166,7 @@
     //第三步 当我们需要的时候 再调用这个block
     dispatch_async(dispatch_get_main_queue(), ^{
         self.progressBlock(progress);
+        [self resetBlock];
     });
 }
 - (void)connectionDidFinishLoading:(NSURLConnection*)connection
@@ -172,6 +178,7 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         //调用block
         self.finishedBlock(true, nil);
+        [self resetBlock];
     });
 }
 - (void)connection:(NSURLConnection*)connection didFailWithError:(NSError*)error
