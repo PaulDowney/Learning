@@ -15,6 +15,8 @@
 @property (nonatomic, strong) NSOutputStream* outputStream;
 @end
 @implementation FileDownloader
+
+
 - (void)downloadFileWithUrlString:(NSString*)urlString
 {
     NSURL* url = [NSURL URLWithString:urlString];
@@ -36,6 +38,7 @@
     //        [data writeToFile:@"/Users/heima/Desktop/sougou.zip"  atomically:true];
     //    }];
 }
+ 
 /**
  *  保存每一次下载的数据
  *  要解决内存峰值过高:每下载一点就保存一点
@@ -64,7 +67,7 @@
 - (void)connection:(NSURLConnection*)connection didReceiveResponse:(NSURLResponse*)response
 {
     NSLog(@"收到响应%@ %lld", response, response.expectedContentLength);
-    self.expectedLength = response.expectedContentLength;
+//    self.expectedLength = response.expectedContentLength;
 }
 - (void)connection:(NSURLConnection*)connection didReceiveData:(NSData*)data
 {
